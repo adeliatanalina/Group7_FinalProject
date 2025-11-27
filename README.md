@@ -173,36 +173,8 @@ If your repository contains a dataset folder, link it here.
 Provide your implementation in the repository.
 Typical structure:
 
-```
-/* 
-   Class Scheduling using Welsh–Powell Algorithm
-   --------------------------------------------
-   - Each course is a vertex
-   - Edge = conflict between two courses
-   - Color = time slot
+```C
 
-   Input format:
-   1. Number of courses (n)
-   2. n course labels (for example: A B C D)
-   3. Adjacency matrix n x n with 0 or 1
-
-   Example for Scenario A (4 courses):
-
-   n = 4
-   labels: A B C D
-
-   Example adjacency matrix (symmetric, 0 on diagonal):
-   If conflicts are:
-   A with B
-   A with C
-   C with D
-
-   Then matrix:
-   0 1 1 0
-   1 0 0 0
-   1 0 0 1
-   0 0 1 0
-*/
 
 #include <stdio.h>
 
