@@ -175,61 +175,64 @@ Typical structure:
 
 ```C
 
-
 #include <stdio.h>
 
-#define MAX 20
+#define MAX 30
 
 int main() {
-    int n;                              // number of courses (vertices)
-    char label[MAX];                    // labels of courses (A, B, C, etc) 
-    int adj[MAX][MAX];                  // adjacency matrix                
-    int degree[MAX];                    // degree of each vertex             
-    int order[MAX];                     // indices sorted by degree         
-    int color[MAX];                     // color (time slot) for each vertex 
+    int n;  
+    char label[MAX];
+    int adj[MAX][MAX] = {0};  
+    int degree[MAX] = {0};
+    int order[MAX];
+    int color[MAX] = {0};
     int i, j;
 
     printf("Number of courses: ");
     scanf("%d", &n);
 
-    if (n <= 0 || n > MAX) {
-        printf("Invalid number of courses.\n");
-        return 1;
-    }
-
-    // read course labels
-    printf("Enter %d course labels (single characters, e.g. A B C D):\n", n);
+    printf("Enter %d course labels (example: A B C D):\n", n);
     for (i = 0; i < n; i++) {
         scanf(" %c", &label[i]);
     }
 
-    // read adjacency matrix
-    printf("Enter adjacency matrix %d x %d (0 or 1):\n", n, n);
-    for (i = 0; i < n; i++) {
+    int m;
+    printf("Number of conflicts: ");
+    scanf("%d", &m);
+
+    printf("Enter each conflict as two course labels. Example: A B\n");
+    printf("Meaning: A conflicts with B\n");
+
+    for (i = 0; i < m; i++) {
+        char a, b;
+        scanf(" %c %c", &a, &b);
+
+        int u = -1, v = -1;
+
         for (j = 0; j < n; j++) {
-            scanf("%d", &adj[i][j]);
+            if (label[j] == a) u = j;
+            if (label[j] == b) v = j;
+        }
+
+        if (u != -1 && v != -1) {
+            adj[u][v] = 1;
+            adj[v][u] = 1;
         }
     }
 
-    // compute degree of each vertex
     for (i = 0; i < n; i++) {
-        degree[i] = 0;
         for (j = 0; j < n; j++) {
             degree[i] += adj[i][j];
         }
     }
 
-    // initialize order array with indices
     for (i = 0; i < n; i++) {
         order[i] = i;
     }
 
-    // sort vertices in descending order of degree (simple bubble sort)
     for (i = 0; i < n - 1; i++) {
         for (j = 0; j < n - 1 - i; j++) {
-            int u = order[j];
-            int v = order[j + 1];
-            if (degree[u] < degree[v]) {
+            if (degree[order[j]] < degree[order[j + 1]]) {
                 int temp = order[j];
                 order[j] = order[j + 1];
                 order[j + 1] = temp;
@@ -237,47 +240,36 @@ int main() {
         }
     }
 
-    // initialize all colors to 0 (uncolored)
-    for (i = 0; i < n; i++) {
-        color[i] = 0;
-    }
-
     int currentColor = 0;
 
-    // Welsh–Powell coloring
     for (i = 0; i < n; i++) {
         int v = order[i];
         if (color[v] == 0) {
-            currentColor++;            // start a new color
-            color[v] = currentColor;   // color this vertex
+            currentColor++;
+            color[v] = currentColor;
 
-            // try to color other vertices with the same color
             for (j = i + 1; j < n; j++) {
                 int u = order[j];
+                int canUse = 1;
+
+                if (color[u] != 0)
+                    continue;
+
                 int k;
-                int canUseColor = 1;   // assume we can use the color
-
-                if (color[u] != 0) {
-                    continue;         // already colored
-                }
-
-                // check adjacency with all vertices that already have this color
                 for (k = 0; k < n; k++) {
                     if (color[k] == currentColor && adj[u][k] == 1) {
-                        canUseColor = 0;
+                        canUse = 0;
                         break;
                     }
                 }
 
-                if (canUseColor) {
+                if (canUse)
                     color[u] = currentColor;
-                }
             }
         }
     }
 
-    // print result
-    printf("\nScheduling result (time slots):\n");
+    printf("\nScheduling result:\n");
     for (i = 0; i < n; i++) {
         printf("Course %c -> time slot %d\n", label[i], color[i]);
     }
@@ -286,6 +278,7 @@ int main() {
 
     return 0;
 }
+
 
 ```
 
