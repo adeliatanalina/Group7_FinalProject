@@ -31,6 +31,9 @@ Steps:
 3. For each next vertex, assign the lowest color that does not conflict with its colored neighbors.
 4. Continue until all vertices are assigned a color.
 
+<img width="629" height="240" alt="Screenshot 2025-11-27 at 08 56 37" src="https://github.com/user-attachments/assets/123f0b4b-7808-40a5-bcf8-c5c313b52a20" />
+
+
 ---
 
 ## 3. Workflow
