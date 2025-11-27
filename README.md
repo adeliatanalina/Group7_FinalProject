@@ -162,8 +162,9 @@ L: 4
 
 ## 7. Dataset
 
-Datasets may include small, medium, and complex scheduling cases (for example: 4, 8, and 12-course scenarios).
-If your repository contains a dataset folder, link it here.
+Datasets may include small, medium, and complex scheduling cases.
+<img width="655" height="686" alt="Screenshot 2025-11-27 at 08 40 45" src="https://github.com/user-attachments/assets/b09575a8-0cc4-4af4-ba22-efd1b527099d" />
+
 
 
 ---
