@@ -291,9 +291,9 @@ A B C D
 Number of conflicts: 3
 Enter each conflict as two course labels. Example: A B
 Meaning: A conflicts with B
-A B 
+A B
 A C
-A D
+B D
 ````
 
 Output
@@ -302,7 +302,7 @@ Scheduling result:
 Course A -> time slot 1
 Course B -> time slot 2
 Course C -> time slot 2
-Course D -> time slot 2
+Course D -> time slot 1
 
 Total time slots used: 2
 ```
