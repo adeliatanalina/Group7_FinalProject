@@ -282,6 +282,29 @@ int main() {
 
 ```
 
+Input
+`
+Number of courses: 4
+Enter 4 course labels (example: A B C D):
+A B C D
+Number of conflicts: 3
+Enter each conflict as two course labels. Example: A B
+Meaning: A conflicts with B
+A B 
+A C
+A D
+`
+
+Output
+`
+Scheduling result:
+Course A -> time slot 1
+Course B -> time slot 2
+Course C -> time slot 2
+Course D -> time slot 2
+
+Total time slots used: 2
+`
 ---
 
 ## 9. Conclusion
