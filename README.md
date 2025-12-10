@@ -55,6 +55,9 @@ An edge exists if:
 
 This produces a weighted preference list for matching.
 
+<img width="1126" height="831" alt="image" src="https://github.com/user-attachments/assets/11f7eac4-843c-449d-bbd6-fc9c5e3b67cf" />
+
+
 ### Scheduling Logic
 
 1. User inputs course name, capacity, day, and session.
