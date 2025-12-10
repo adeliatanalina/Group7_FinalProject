@@ -71,7 +71,42 @@ This produces a weighted preference list for matching.
 
 ---
 
-## 3. Workflow
+## 3. Comparison Between Graph Coloring Scheduling and Bipartite Matching Scheduling
+
+### Graph Coloring Scheduling
+
+The graph coloring approach treats each course as a vertex and every declared conflict between two courses as an edge. Two adjacent vertices cannot share the same color, meaning the corresponding courses cannot be scheduled in the same time slot.
+
+The algorithm proceeds by:
+1. Building a conflict graph using an adjacency matrix.
+2. Computing the degree of each course to identify how many other courses it conflicts with.
+3. Sorting courses by decreasing degree, ensuring the most constrained courses are scheduled first.
+4. Assigning colors (time slots):
+   - The first course receives color 1
+   - Each next course receives the lowest available color that is not used by any of its neighbors
+   - If none is available, a new color is created
+
+The final result is a set of colors where each color represents a valid timeslot with no conflicts.
+
+This method guarantees a conflict-free schedule but does not consider room capacity, room availability, or preferred times—it only prevents overlapping between conflicting courses.
+
+### Comparison Table
+
+| Feature                  | Graph Coloring                   | Bipartite Matching                  |
+| ------------------------ | -------------------------------- | ----------------------------------- |
+| Graph Type               | Conflict graph (Course ↔ Course) | Bipartite graph (Course ↔ RoomSlot) |
+| Input Needed             | Conflict pairs only              | Course capacity, preferred time     |
+| Output                   | Timeslot only                    | Timeslot + Room                     |
+| Handles Room Capacity    | No                             | Yes                               |
+| Resolves Room Conflicts  | No                             | Yes                               |
+| Auto-Rescheduling        | No                             | Augmenting path                   |
+| Optimization             | Min colors (min slots)           | Min waste + respect preferred slot  |
+| Real-world Applicability | Medium                           | Very High                           |
+
+
+---
+
+## 4. Workflow
 
 ### Step 1: Input Data
 
@@ -107,7 +142,7 @@ Includes warnings when a class is moved from its preferred time.
 
 ---
 
-## 4. Pseudocode
+## 5. Pseudocode
 
 ```
 Input course list
@@ -131,7 +166,7 @@ After matching:
 
 ---
 
-## 5. How to Use
+## 6. How to Use
 
 ### Input Format
 
@@ -157,7 +192,7 @@ The algorithm will:
 
 ---
 
-## 6. Example Scenario
+## 7. Example Scenario
 
 ### Scenario A (Simple Case)
 
@@ -286,7 +321,7 @@ KALKULUS | Day 5 Session 4 | Room IF-107 (cap 80)
 
 ---
 
-## 7. Dataset
+## 8. Dataset
 
 The dataset used in this project consists of two main components:
 
@@ -358,7 +393,7 @@ The dataset is designed to test multiple scenarios, including:
 
 ---
 
-## 8. Source Code
+## 9. Source Code
 
 Final Implementation
 
@@ -595,7 +630,7 @@ STRUKDAT | Day 3 Session 2 | Room IF-107 (cap 80)
 ```
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 This project applies graph theory bipartite graph modeling and maximum matching to solve the university class scheduling problem. By treating courses and room–time slots as two distinct sets of vertices, the system ensures that each course is paired with exactly one valid room and schedule.
 
