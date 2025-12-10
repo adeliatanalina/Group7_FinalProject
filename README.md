@@ -247,11 +247,13 @@ PBO
 Output:
 
 ```
+TEGRAF moved from Day 1 Session 1 -> Day 1 Session 2
+
 ----- FINAL SCHEDULE -----
-TEGRAF | Day 1 Session 1 | Room IF-108 (cap 40)
+TEGRAF | Day 1 Session 2 | Room IF-105 (cap 100)
 JARKOM | Day 1 Session 1 | Room IF-107 (cap 80)
-MATDIS | Day 1 Session 1 | Room IF-106 (cap 33)
-PBO | Day 2 Session 4 | Room IF-101 (cap 50)
+MATDIS | Day 1 Session 1 | Room IF-105 (cap 100)
+PBO | Day 1 Session 2 | Room IF-101 (cap 50)
 ```
 
 ### Scenario C (Complex Case)
@@ -370,10 +372,10 @@ The dataset is designed to test multiple scenarios, including:
 **Dataset B — Moderate Conflict**
 | Course | Capacity | Day | Session |
 | ------ | -------- | --- | ------- |
-| TEGRAF | 40       | 1   | 1       |
+| TEGRAF | 100       | 1   | 1       |
 | JARKOM | 80       | 1   | 1       |
-| MATDIS | 33       | 1   | 1       |
-| PBO    | 50       | 2   | 4       |
+| MATDIS | 90       | 1   | 1       |
+| PBO    | 50       | 1   | 2       |
 
 **Dataset C — Heavy Conflict**
 | Course   | Capacity | Day | Session |
