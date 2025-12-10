@@ -227,7 +227,7 @@ Input :
 ```
 4
 TEGRAF
-40
+100
 1
 1
 JARKOM
@@ -235,13 +235,13 @@ JARKOM
 1
 1
 MATDIS
-33
+90
 1
 1
 PBO
 50
+1
 2
-4
 ```
 
 Output:
