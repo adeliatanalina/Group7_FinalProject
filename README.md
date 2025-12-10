@@ -183,7 +183,6 @@ GraphTheory
 40
 1
 1
-
 ```
 The algorithm will:
 - Try the preferred time
