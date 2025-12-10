@@ -608,4 +608,5 @@ The use of the augmenting path algorithm (Kuhn’s Algorithm) is crucial, as it 
 The priority-based sorting further improves practicality by selecting rooms with minimal wasted space and keeping courses close to their preferred time slots.
 
 Overall, the system demonstrates how graph theory can be used to build a conflict-free, efficient, and fully automated scheduling solution, showing both the theoretical strength and real-world applicability of bipartite matching.
+
 ---
