@@ -332,7 +332,7 @@ The dataset used in this project consists of two main components:
 ### 1. Room Dataset
 
 Contains all available classrooms, each with a fixed capacity.
-This dataset is static and represents real scheduling constraints.
+This dataset is based on the real classroom capacities used in the Informatics Engineering Department, Institut Teknologi Sepuluh Nopember.
 
 | Room Name | Capacity |
 | --------- | -------- |
