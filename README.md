@@ -592,42 +592,6 @@ int main() {
 
 ```
 
-Input :
-
-```
-5
-TEGRAF
-60
-1
-1
-JARKOM
-80
-1
-1
-MATDIS
-40
-1
-1
-SISOP
-50
-1
-1
-STRUKDAT
-70
-3
-2
-```
-
-Output :
-
-```
------ FINAL SCHEDULE -----
-TEGRAF | Day 1 Session 1 | Room IF-105 (cap 100)
-JARKOM | Day 1 Session 1 | Room IF-107 (cap 80)
-MATDIS | Day 1 Session 1 | Room IF-108 (cap 40)
-SISOP | Day 1 Session 1 | Room IF-101 (cap 50)
-STRUKDAT | Day 3 Session 2 | Room IF-107 (cap 80)
-```
 ---
 
 ## 10. Conclusion
